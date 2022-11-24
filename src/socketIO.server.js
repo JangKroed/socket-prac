@@ -39,6 +39,7 @@ function countRoom(roomName) {
 }
 
 wsServer.on('connection', (socket) => {
+    console.log(wsServer.sockets.adapter)
     socket['nickname'] = 'Anon';
     socket.onAny((event) => {
         // console.log(wsServer.sockets.adapter);
@@ -67,4 +68,4 @@ wsServer.on('connection', (socket) => {
     socket.on('nickname', (nickname) => (socket['nickname'] = nickname));
 });
 
-httpServer.listen(3000, handleListen);
+httpServer.listen(3001, handleListen);
